@@ -11,7 +11,7 @@ import java.util.List;
 public class ClienteDAO implements IClienteDAO{
     @Override
     public List<Cliente> listarCliente() {
-        List<Cliente> clientes = new ArrayList<>();
+        List<Cliente> listaClientes = new ArrayList<>();
         //permite preparar la sentencia sql
         PreparedStatement ps;
         //para almacenar las consulta sql
@@ -29,7 +29,7 @@ public class ClienteDAO implements IClienteDAO{
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setApellido(rs.getString("apellido"));
                 cliente.setMembresia(rs.getInt("membresia"));
-                clientes.add(cliente);
+                listaClientes.add(cliente);
             }
         } catch (Exception e) {
             System.out.println("Error al listar clientes: " + e.getMessage());
@@ -40,7 +40,7 @@ public class ClienteDAO implements IClienteDAO{
                 System.out.println("Error al cerrar la conexion: " + e.getMessage());
             }
         }
-        return clientes;
+        return listaClientes;
     }
 
     @Override
