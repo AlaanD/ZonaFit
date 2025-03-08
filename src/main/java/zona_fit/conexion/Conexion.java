@@ -11,11 +11,12 @@ public class Conexion {
         y a la cual nos vamos a conectar
          */
         var baseDatos = "zona_fit_db";
-        //jdbc:mysql://nombre_del_servidor:numero_puerto/
+        //jdbc:mysql://nombre_del_servidor:numero_puerto/nombre_base_datos
         var url = "jdbc:mysql://localhost:3306/" + baseDatos;
         var usuario = "root";
         var password = "quantex9";
         try{
+            //clase de conexion, cada BD tiene una distinta
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(url, usuario, password);
         }catch (Exception e) {
